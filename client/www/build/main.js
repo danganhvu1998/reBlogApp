@@ -7,7 +7,8 @@ webpackJsonp([7],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,6 +21,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ChatPage page.
  *
@@ -27,31 +29,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ChatPage = /** @class */ (function () {
-    function ChatPage(navCtrl, navParams, stoSave) {
+    function ChatPage(navCtrl, navParams, stoSave, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.stoSave = stoSave;
+        this.http = http;
     }
-    ChatPage.prototype.hashCode = function (s) {
-        return s.split("").reduce(function (a, b) { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
-    };
     ChatPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
         console.log('ionViewDidLoad ChatPage');
-        this.stoSave.set("cookies", "hahahatinnguoivkl");
-        this.stoSave.get("cookies").then(function (result) {
-            console.log(result, _this.hashCode(result));
+        var data = JSON.stringify({ token: '502f13a6a4bd7bdd30b2d78dd0a05677c098233e' });
+        console.log("Data:", data);
+        this.postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nFirst Testing');
+        this.___postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nSecond Testing');
+    };
+    ChatPage.prototype.___postAjax = function (url, data, testing) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        this.http.post(url, data, options)
+            .toPromise()
+            .then(function (response) {
+            console.log(testing);
+            console.log('API Response : ', response.text);
+        })
+            .catch(function (error) {
+            console.log(testing);
+            console.error('API Error : ', error.status);
+            console.log(url, data);
         });
+    };
+    ChatPage.prototype.userInform = function (result, title) {
+        console.log(title, "\nThis is resutl: ", result);
+    };
+    ChatPage.prototype.postAjax = function (url, data, title) {
+        console.log("Sending ...", data);
+        var vm = this;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.onreadystatechange = function () {
+            //console.log("Current status:", xhr.readyState, xhr.status);
+            if (xhr.readyState > 3 && xhr.status == 200) {
+                vm.userInform(xhr.responseText, title);
+            }
+        };
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(data);
+        return xhr;
     };
     ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-chat',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/chat/chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chat</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/chat/chat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _d || Object])
     ], ChatPage);
     return ChatPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=chat.js.map
