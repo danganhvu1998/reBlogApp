@@ -43,7 +43,7 @@ export class ChatPage {
       .then((response) =>
       {  
         console.log(testing);
-        console.log('API Response : ', response.text);
+        console.log('API Response : ', response['_body']);
       })
       .catch((error) =>
       { 

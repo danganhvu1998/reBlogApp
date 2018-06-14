@@ -32,12 +32,12 @@ export class ShowPage {
   }
 
   blogPrint(data){
-    //console.log(data);
+    console.log(data);
     var blog;
     var result = JSON.parse(data);
-    this.blogJson = result['blogs'];
+    this.blogJson = result;
     for (blog in this.blogJson ){
-      //console.log(this.blogJson[blog]);
+      console.log(this.blogJson[blog]);
     }
   }
 

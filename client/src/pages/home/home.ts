@@ -49,18 +49,19 @@ export class HomePage {
   }
   
   blogPrint(data){
-    //console.log(data);
+    console.log(data);
     var blog;
     var result = JSON.parse(data);
-    this.blogJson = result['blogs'];
+    this.blogJson = result;
     for (blog in this.blogJson ){
-      //console.log(this.blogJson[blog]);
+      console.log(this.blogJson[blog]);
     }
   }
 
   userInform(data){
-    var result = JSON.parse(data);
-    if(result['result']==1){//data posted cfed by server
+    //var result = JSON.parse(data);
+    console.log(data);
+    if(data==1){//data posted cfed by server
       console.log('Post ok');
       this.presentAlert('Post was posted', '');
     } else {
@@ -68,6 +69,7 @@ export class HomePage {
       this.presentAlert('Server Error', 'unknown error');
     }
   }
+
 
   postAjax(url, data, requestType) {
     let vm = this;
@@ -91,7 +93,7 @@ export class HomePage {
     var data = "title="+title
       +"&body="+body
       +"&user_id="+id.toString();
-    this.postAjax('http://localhost:8000/api/blogs', data, 'POST' )
+    this.postAjax('http://localhost:8000/api/blogs', data, 'POST' );
 	}
 
   update(){

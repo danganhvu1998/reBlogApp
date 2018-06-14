@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,7 +49,7 @@ var ChatPage = /** @class */ (function () {
             .toPromise()
             .then(function (response) {
             console.log(testing);
-            console.log('API Response : ', response.text);
+            console.log('API Response : ', response['_body']);
         })
             .catch(function (error) {
             console.log(testing);
@@ -78,27 +78,29 @@ var ChatPage = /** @class */ (function () {
     };
     ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chat',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/chat/chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chat</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/chat/chat.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/chat/chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chat</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/chat/chat.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], ChatPage);
     return ChatPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=chat.js.map
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogoutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,7 +133,7 @@ var LogoutPage = /** @class */ (function () {
     };
     LogoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-logout',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/logout/logout.html"*/'<!--\n  Generated template for the LogoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>logout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/logout/logout.html"*/,
+            selector: 'page-logout',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/logout/logout.html"*/'<!--\n  Generated template for the LogoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>logout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/logout/logout.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
@@ -144,7 +146,7 @@ var LogoutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -237,7 +239,7 @@ var UserPage = /** @class */ (function () {
     ], UserPage.prototype, "password", void 0);
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/user/user.html"*/'<!--\n  Generated template for the UserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>User Setting - {{globalVal.userName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n\n		<ion-item>\n	    <ion-label>Email : {{globalVal.email}}</ion-label>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label>New Username : </ion-label>\n	    <ion-input #userName type="text" value={{globalVal.userName}}></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label>New Password : </ion-label>\n	    <ion-input #userPass type="password"></ion-input>\n	  </ion-item>\n\n		<ion-item>\n	    <ion-label>Current Password : </ion-label>\n	    <ion-input #password type="password"></ion-input>\n	  </ion-item>	  \n\n	</ion-list>\n	<button ion-button (click)=whatever() color="light" round full>Save Change</button>\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/user/user.html"*/,
+            selector: 'page-user',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/user/user.html"*/'<!--\n  Generated template for the UserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>User Setting - {{globalVal.userName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n\n		<ion-item>\n	    <ion-label>Email : {{globalVal.email}}</ion-label>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label>New Username : </ion-label>\n	    <ion-input #userName type="text" value={{globalVal.userName}}></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label>New Password : </ion-label>\n	    <ion-input #userPass type="password"></ion-input>\n	  </ion-item>\n\n		<ion-item>\n	    <ion-label>Current Password : </ion-label>\n	    <ion-input #password type="password"></ion-input>\n	  </ion-item>	  \n\n	</ion-list>\n	<button ion-button (click)=whatever() color="light" round full>Save Change</button>\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/user/user.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -250,7 +252,7 @@ var UserPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 117:
+/***/ 118:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -263,11 +265,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 117;
+webpackEmptyAsyncContext.id = 118;
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -311,7 +313,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 158;
+webpackAsyncContext.id = 159;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -340,16 +342,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_user_user__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_chat_chat__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_global_global__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_show_show__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_logout_logout__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_user_user__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_chat_chat__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_global_global__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_show_show__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_logout_logout__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_global_global__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -437,12 +439,12 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_user_user__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_chat_chat__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_global_global__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_logout_logout__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_user_user__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_chat_chat__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_global_global__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_logout_logout__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -502,7 +504,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>BlogApp</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>BlogApp</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */],
@@ -569,16 +571,17 @@ var GlobalProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_global__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__show_show__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__show_show__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -593,6 +596,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the GlobalPage page.
  *
@@ -602,11 +606,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GlobalPage = /** @class */ (function () {
     //userID = 5;
     //userName = "Dang Anh Vu";
-    function GlobalPage(navCtrl, navParams, alertCtrl, globalVal) {
+    function GlobalPage(navCtrl, navParams, alertCtrl, globalVal, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
         this.globalVal = globalVal;
+        this.http = http;
         this.blogJson = [];
     }
     GlobalPage.prototype.ionViewDidLoad = function () {
@@ -628,14 +633,12 @@ var GlobalPage = /** @class */ (function () {
         //console.log(data);
         var blog;
         var result = JSON.parse(data);
-        this.blogJson = result['blogs'];
-        for (blog in this.blogJson) {
-            //console.log(this.blogJson[blog]);
-        }
+        this.blogJson = result;
     };
     GlobalPage.prototype.userInform = function (data) {
-        var result = JSON.parse(data);
-        if (result['result'] == 1) {
+        //var result = JSON.parse(data);
+        console.log(data);
+        if (data == 1) {
             console.log('Post ok');
             this.presentAlert('Post was posted', '');
         }
@@ -652,8 +655,10 @@ var GlobalPage = /** @class */ (function () {
         xhr.open(requestType, url, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState > 3 && xhr.status == 200) {
-                if (requestType == 'POST')
+                if (requestType == 'POST') {
+                    console.log("What the fuck", xhr.responseText);
                     vm.userInform(xhr.responseText);
+                }
                 else
                     vm.blogPrint(xhr.responseText);
             }
@@ -666,6 +671,21 @@ var GlobalPage = /** @class */ (function () {
             xhr.send();
         return xhr;
     };
+    GlobalPage.prototype.___postAjax = function (url, data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var vm = this;
+        this.http.get(url, data)
+            .toPromise()
+            .then(function (response) {
+            console.log('API Response : ');
+            vm.blogPrint(response['_body']);
+        })
+            .catch(function (error) {
+            console.error('API Error : ', error.status);
+            console.log(url);
+        });
+    };
     GlobalPage.prototype.sendBlog = function (title, body, id) {
         var data = "title=" + title
             + "&body=" + body
@@ -673,6 +693,7 @@ var GlobalPage = /** @class */ (function () {
         this.postAjax('http://localhost:8000/api/blogs', data, 'POST');
     };
     GlobalPage.prototype.update = function () {
+        //this.___postAjax("http://localhost:8000/api/blogs", '');
         this.postAjax("http://localhost:8000/api/blogs", '', 'GET');
     };
     GlobalPage.prototype.blog = function () {
@@ -690,12 +711,12 @@ var GlobalPage = /** @class */ (function () {
     GlobalPage.prototype.blogUserInfo = function (guestId, guestName) {
         console.log(guestId, guestName);
         if (guestId == this.globalVal.userID) {
-            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
         }
         else {
             this.globalVal.guestID = guestId;
             this.globalVal.guestName = guestName;
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__show_show__["a" /* ShowPage */]);
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__show_show__["a" /* ShowPage */]);
         }
     };
     __decorate([
@@ -708,12 +729,13 @@ var GlobalPage = /** @class */ (function () {
     ], GlobalPage.prototype, "body", void 0);
     GlobalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-global',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/global/global.html"*/'<!--\n  Generated template for the GlobalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Welcome to BLOGAPP - {{globalVal.userName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Blog Title</ion-label>\n	    <ion-input #title type="text"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Blog Content</ion-label>\n	    <ion-input #body type="text"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=blog() color="light" round full>POST</button><br>\n\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n          <button ion-button item-right clear small (click)=blogUserInfo(blog.user_id,blog.created_by) color="danger">\n            <ion-icon name="logo-reddit"></ion-icon>\n            <div>{{blog[\'created_by\']}} - {{blog[\'user_id\']}}</div>\n          </button>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n\n<!--\n@foreach($posts as $post)\n    <div class="well">\n        <div class="row">\n            <div class="col-md-4 col-sm-4">\n                <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">\n            </div>\n            <div class="col-md-8 col-sm-8">\n                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>\n                <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>\n            </div>\n        </div>\n    </div>\n@endforeach\n\n\n<ion-row class="home" *ngFor="let blog of blogJson">\n 		<div   *ngFor="let homeobj of home.teachers ">\n   			<img src="{{ homeobj?.img }}" alt="">\n  		</div>\n	</ion-row>\n\n  <ion-card>\n  <ion-card-header>\n    Header\n  </ion-card-header>\n  <ion-card-content>\n    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.\n  </ion-card-content>\n</ion-card>\n\n\n\n\n-->'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/global/global.html"*/,
+            selector: 'page-global',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/global/global.html"*/'<!--\n  Generated template for the GlobalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Welcome to BLOGAPP - {{globalVal.userName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Blog Title</ion-label>\n	    <ion-input #title type="text"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Blog Content</ion-label>\n	    <ion-input #body type="text"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=blog() color="light" round full>POST</button><br>\n\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n          <button ion-button item-right clear small (click)=blogUserInfo(blog.user_id,blog.created_by) color="danger">\n            <ion-icon name="logo-reddit"></ion-icon>\n            <div>{{blog[\'created_by\']}} - {{blog[\'user_id\']}}</div>\n          </button>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n\n<!--\n@foreach($posts as $post)\n    <div class="well">\n        <div class="row">\n            <div class="col-md-4 col-sm-4">\n                <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">\n            </div>\n            <div class="col-md-8 col-sm-8">\n                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>\n                <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>\n            </div>\n        </div>\n    </div>\n@endforeach\n\n\n<ion-row class="home" *ngFor="let blog of blogJson">\n 		<div   *ngFor="let homeobj of home.teachers ">\n   			<img src="{{ homeobj?.img }}" alt="">\n  		</div>\n	</ion-row>\n\n  <ion-card>\n  <ion-card-header>\n    Header\n  </ion-card-header>\n  <ion-card-content>\n    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.\n  </ion-card-content>\n</ion-card>\n\n\n\n\n-->'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/global/global.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_global_global__["a" /* GlobalProvider */]])
+            __WEBPACK_IMPORTED_MODULE_3__providers_global_global__["a" /* GlobalProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], GlobalPage);
     return GlobalPage;
 }());
@@ -744,7 +766,7 @@ loadDoc(type) {
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -752,7 +774,7 @@ loadDoc(type) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_global__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__show_show__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__show_show__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -797,17 +819,18 @@ var HomePage = /** @class */ (function () {
         console.log(data);
     };
     HomePage.prototype.blogPrint = function (data) {
-        //console.log(data);
+        console.log(data);
         var blog;
         var result = JSON.parse(data);
-        this.blogJson = result['blogs'];
+        this.blogJson = result;
         for (blog in this.blogJson) {
-            //console.log(this.blogJson[blog]);
+            console.log(this.blogJson[blog]);
         }
     };
     HomePage.prototype.userInform = function (data) {
-        var result = JSON.parse(data);
-        if (result['result'] == 1) {
+        //var result = JSON.parse(data);
+        console.log(data);
+        if (data == 1) {
             console.log('Post ok');
             this.presentAlert('Post was posted', '');
         }
@@ -880,7 +903,7 @@ var HomePage = /** @class */ (function () {
     ], HomePage.prototype, "body", void 0);
     HomePage = HomePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>User Blog</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Blog Title</ion-label>\n	    <ion-input #title type="text"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Blog Content</ion-label>\n	    <ion-input #body type="text"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=blog() color="light" round full>POST</button><br>\n\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n          <button ion-button item-right clear small (click)=blogUserInfo(blog.user_id,blog.created_by) color="danger">\n            <ion-icon name="logo-reddit"></ion-icon>\n            <div>{{blog[\'created_by\']}} - {{blog[\'user_id\']}}</div>\n          </button>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n</ion-content>'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>User Blog</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Blog Title</ion-label>\n	    <ion-input #title type="text"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Blog Content</ion-label>\n	    <ion-input #body type="text"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=blog() color="light" round full>POST</button><br>\n\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n          <button ion-button item-right clear small (click)=blogUserInfo(blog.user_id,blog.created_by) color="danger">\n            <ion-icon name="logo-reddit"></ion-icon>\n            <div>{{blog[\'created_by\']}} - {{blog[\'user_id\']}}</div>\n          </button>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n</ion-content>'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -895,7 +918,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -933,12 +956,12 @@ var ShowPage = /** @class */ (function () {
         this.update();
     };
     ShowPage.prototype.blogPrint = function (data) {
-        //console.log(data);
+        console.log(data);
         var blog;
         var result = JSON.parse(data);
-        this.blogJson = result['blogs'];
+        this.blogJson = result;
         for (blog in this.blogJson) {
-            //console.log(this.blogJson[blog]);
+            console.log(this.blogJson[blog]);
         }
     };
     ShowPage.prototype.postAjax = function (url, data, requestType) {
@@ -971,7 +994,7 @@ var ShowPage = /** @class */ (function () {
     };
     ShowPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-show',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/show/show.html"*/'<!--\n  Generated template for the ShowPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{globalVal.guestName}}\'s Blog Page</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/show/show.html"*/,
+            selector: 'page-show',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/show/show.html"*/'<!--\n  Generated template for the ShowPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{globalVal.guestName}}\'s Blog Page</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngFor=\'let blog of blogJson\'>\n    <ion-card>\n      <ion-card-header>\n        <ion-item item-right>\n          <strong item-left>{{blog.title}}</strong>\n        </ion-item>\n        <ion-item><p>{{blog[\'created_at\']}}</p></ion-item>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-item><p>{{blog[\'body\']}}</p></ion-item>\n      </ion-card-content>\n    </ion-card>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/show/show.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -984,21 +1007,21 @@ var ShowPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_global_global__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_global__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_global__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1062,15 +1085,14 @@ var LoginPage = /** @class */ (function () {
         return s.split("").reduce(function (a, b) { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
     };
     LoginPage.prototype.userInform = function (data, errorRaise) {
-        //console.log(data);
-        //return 0;
+        console.log("The hell");
         var dataJson = JSON.parse(data);
         console.log(dataJson);
-        if (dataJson['result'] > 0) {
-            this.globalVal.userID = dataJson['id'];
-            this.globalVal.userName = dataJson['name'];
-            this.globalVal.email = dataJson['email'];
-            this.stoSave.set('token', dataJson['token']);
+        if (dataJson.length > 0) {
+            this.globalVal.userID = dataJson[0]['id'];
+            this.globalVal.userName = dataJson[0]['name'];
+            this.globalVal.email = dataJson[0]['email'];
+            this.stoSave.set('token', dataJson[0]['token']);
             console.log(this.globalVal.email);
             this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__global_global__["a" /* GlobalPage */]);
         }
@@ -1165,7 +1187,7 @@ var LoginPage = /** @class */ (function () {
     ], LoginPage.prototype, "regisRePassword", void 0);
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/home/kyatod/reBlogApp/client/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Alway Free</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<!--Login-->\n	<h3 style="color:Chocolate;">Login</h3>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Email</ion-label>\n	    <ion-input #loginUsername value="danganhvu@gmail.com" type="email"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Password</ion-label>\n	    <ion-input #loginPassword value="davdav" type="password"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=login() color="secondary" round full>Login</button><br>\n\n\n	<!--Register-->\n	<h3 style="color:DarkGoldenRod;">Register</h3>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Email</ion-label>\n	    <ion-input #regisUsername type="email"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Password</ion-label>\n	    <ion-input #regisPassword type="password"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Retype Password</ion-label>\n	    <ion-input #regisRePassword type="password"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=regis() color="danger" round full>Register For Free</button><br>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/reBlogApp/client/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Alway Free</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<!--Login-->\n	<h3 style="color:Chocolate;">Login</h3>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Email</ion-label>\n	    <ion-input #loginUsername value="danganhvu@gmail.com" type="email"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Password</ion-label>\n	    <ion-input #loginPassword value="davdav" type="password"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=login() color="secondary" round full>Login</button><br>\n\n\n	<!--Register-->\n	<h3 style="color:DarkGoldenRod;">Register</h3>\n	<ion-list>\n	  <ion-item>\n	    <ion-label floating>Email</ion-label>\n	    <ion-input #regisUsername type="email"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Password</ion-label>\n	    <ion-input #regisPassword type="password"></ion-input>\n	  </ion-item>\n\n	  <ion-item>\n	    <ion-label floating>Retype Password</ion-label>\n	    <ion-input #regisRePassword type="password"></ion-input>\n	  </ion-item>\n	</ion-list>\n	<button ion-button (click)=regis() color="danger" round full>Register For Free</button><br>\n\n</ion-content>\n'/*ion-inline-end:"/home/kyatod/Dropbox/githubResource/reBlogApp/client/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],

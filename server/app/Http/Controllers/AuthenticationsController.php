@@ -11,7 +11,7 @@ class AuthenticationsController extends Controller
         //Check if acc existed
     	$check = User::where('email', $request->username)->get();
         if(count($check)>0){
-            return view('authentications.serverRefuse');
+            return 0;
         }
         //Register New Acc
         $regis = new User;
@@ -22,21 +22,20 @@ class AuthenticationsController extends Controller
     	$result = $regis->save();
     	//return view('authentications.serverAccept')->with('result',$result);
         $check = User::where('email', $request->username)->get();
-        if(count($check)>0 and $check[0]->password==$request->password){
-            return view('authentications.serverAccept')->with('result',$check[0]);
+        $check = User::where([['email', $request->username],['password', $request->password]])->get();
+        if(count($check)){
+            $check[0]->token = $check[0]->remember_token;
         }
+        return $check;
     }
 
     public function login(request $request){
         //Check if acc existed
-        $check = User::where('email', $request->username)->get();
-        if(count($check)>0 and $check[0]->password==$request->password){
-            $hashVal = hash('ripemd160', $request->username.$request->password);
-            User::where('email', $request->username)->update(['remember_token' => $hashVal]);
-            $check = User::where('email', $request->username)->get();
-            return view('authentications.serverAccept')->with('result',$check[0]);
+        $check = User::where([['email', $request->username],['password', $request->password]])->get();
+        if(count($check)){
+            $check[0]->token = $check[0]->remember_token;
         }
-        return view('authentications.serverRefuse');
+        return $check;
     }
 
     public function changePassword(request $request){
@@ -52,10 +51,10 @@ class AuthenticationsController extends Controller
 
     public function checkToken(request $request){
         $check = User::where('remember_token', $request->token)->get();
-        if(count($check)>0){
-            return view('authentications.serverAccept')->with('result',$check[0]);
+        if(count($check)){
+            $check[0]->token = $check[0]->remember_token;
         }
-        return view('authentications.serverRefuse');
+        return $check;
     }
 
     public function create(){

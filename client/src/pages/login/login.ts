@@ -76,15 +76,14 @@ export class LoginPage {
   }
 
   userInform(data, errorRaise){
-    //console.log(data);
-    //return 0;
+    console.log("The hell");
     var dataJson = JSON.parse(data);
     console.log(dataJson);
-    if(dataJson['result']>0) {
-      this.globalVal.userID = dataJson['id'];
-      this.globalVal.userName = dataJson['name'];
-      this.globalVal.email = dataJson['email'];
-      this.stoSave.set('token', dataJson['token']);
+    if(dataJson.length>0) {
+      this.globalVal.userID = dataJson[0]['id'];
+      this.globalVal.userName = dataJson[0]['name'];
+      this.globalVal.email = dataJson[0]['email'];
+      this.stoSave.set('token', dataJson[0]['token']);
       console.log(this.globalVal.email);
       this.navCtrl.setRoot(GlobalPage);
     }

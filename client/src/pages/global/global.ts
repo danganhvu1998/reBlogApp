@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { GlobalProvider } from "../../providers/global/global";
 import { HomePage } from "../home/home";
@@ -26,6 +27,7 @@ export class GlobalPage {
     public navParams: NavParams, 
     public alertCtrl: AlertController,
     public globalVal: GlobalProvider,
+    public http: Http,
     ) {
   }
 
@@ -56,15 +58,13 @@ export class GlobalPage {
     //console.log(data);
     var blog;
     var result = JSON.parse(data);
-    this.blogJson = result['blogs'];
-    for (blog in this.blogJson ){
-      //console.log(this.blogJson[blog]);
-    }
+    this.blogJson = result;
   }
 
   userInform(data){
-    var result = JSON.parse(data);
-    if(result['result']==1){//data posted cfed by server
+    //var result = JSON.parse(data);
+    console.log(data);
+    if(data==1){//data posted cfed by server
       console.log('Post ok');
       this.presentAlert('Post was posted', '');
     } else {
@@ -80,8 +80,10 @@ export class GlobalPage {
     xhr.open(requestType, url, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState>3 && xhr.status==200) {
-          if(requestType=='POST') vm.userInform(xhr.responseText);
-          else vm.blogPrint(xhr.responseText);
+          if(requestType=='POST') {
+            console.log("What the fuck",xhr.responseText);
+            vm.userInform(xhr.responseText);
+          } else vm.blogPrint(xhr.responseText);
         }
     };
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -89,6 +91,24 @@ export class GlobalPage {
     if(requestType!='GET') xhr.send(data);
     else xhr.send();
     return xhr;
+  }
+
+  ___postAjax(url, data) {
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    let vm = this;
+    this.http.get(url, data)
+      .toPromise()
+      .then((response) =>
+      {
+        console.log('API Response : ', );
+        vm.blogPrint(response['_body'])
+      })
+      .catch((error) =>
+      { 
+        console.error('API Error : ', error.status);
+        console.log(url);
+      });
   }
 
 	sendBlog(title, body, id){
@@ -99,7 +119,8 @@ export class GlobalPage {
 	}
 
   update(){
-    this.postAjax("http://localhost:8000/api/blogs", '', 'GET')
+    //this.___postAjax("http://localhost:8000/api/blogs", '');
+    this.postAjax("http://localhost:8000/api/blogs", '', 'GET');
   }
 
   blog(){

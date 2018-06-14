@@ -19,18 +19,11 @@ class BlogsController extends Controller
         $users = User::all();
         $BLOGS = array();
         foreach ($blogs as $blog) {
-            //$name = User::where('id', $blog->id)->get();
             $userName = User::where('id', $blog->user_id)->get()[0]->name;
-            //return $userName[0]->name;
-            //$blog->userName = User::where('id', $blog->id)->get()[0]->name;
-            $blog = [
-                'blog' => $blog,
-                'name' => $userName
-            ];
+            $blog->created_by = $userName;
             array_push($BLOGS, $blog);
-            #return $blog['name'];
         }
-        #return $BLOGS;
+        return $BLOGS;
         return view('blogs.index')->with('blogs', $BLOGS);
     }
 
@@ -51,13 +44,13 @@ class BlogsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $post = new Blog;
         $post->title = $request->title;
         $post->body = $request->body;
         $post->user_id = $request->user_id;
         $result = $post->save();
-        return view('blogs.store')->with('result', $result);
+        return 1;
     }
 
     /**
@@ -73,14 +66,10 @@ class BlogsController extends Controller
         $userName = User::where('id', $id)->get()[0]->name;
         $BLOGS = array();
         foreach ($blogs as $blog) {
-            $blog = [
-                'blog' => $blog,
-                'name' => $userName
-            ];
+            $blog->created_by = $userName;
             array_push($BLOGS, $blog);
         }
-        //return $blogs[0];
-        return view('blogs.index')->with('blogs', $BLOGS);
+        return $BLOGS;
     }
 
     /**
