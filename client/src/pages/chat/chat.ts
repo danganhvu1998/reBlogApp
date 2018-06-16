@@ -36,7 +36,7 @@ export class ChatPage {
   }
 
   ___postAjax(url, data, testing) {
-    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     this.http.post(url, data, options)
       .toPromise()
