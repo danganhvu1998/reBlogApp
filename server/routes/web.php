@@ -25,5 +25,8 @@ Route::post('/api/users/checktoken', 'AuthenticationsController@checkToken');
 Route::get('/api/users/register/create', 'AuthenticationsController@create');
 
 
-Route::post('/api/chats/test', 'ChatsController@test')->name('createChat');
-Route::get('api/chats/test/create', 'ChatsController@testCreate');
+//Route::post('/api/chats/test', 'ChatsController@test')->name('createChat');
+//Route::get('api/chats/test/create', 'ChatsController@testCreate');
+Route::get('/test', function () {
+    return "ok";
+});

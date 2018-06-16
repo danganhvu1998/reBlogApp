@@ -92,7 +92,24 @@ export class GlobalProvider {
       });
   }
 
-  
+  __blogsTaker(id){
+    var url = "http://localhost:8000/api/blogs/";
+    if(id>0) url+=id.toString();
+    console.log(url);
+    let vm = this;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState>3 && xhr.status==200) {
+        vm.blogsShower(xhr.responseText);
+      }
+    };
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send();
+    return xhr;
+  }
+
 
   __blogPoster(title, body){
     var url = "http://localhost:8000/api/blogs/";
@@ -121,23 +138,6 @@ export class GlobalProvider {
 }
 
 /*
-__blogsTaker(id){
-    var url = "http://localhost:8000/api/blogs/";
-    if(id>0) url+=id.toString();
-    console.log(url);
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState>3 && xhr.status==200) {
-        vm.blogsShower(xhr.responseText);
-      }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send();
-    return xhr;
-  }
 
 
  */
