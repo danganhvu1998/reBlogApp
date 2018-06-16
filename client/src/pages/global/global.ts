@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { GlobalProvider } from "../../providers/global/global";
 import { HomePage } from "../home/home";
@@ -27,111 +26,34 @@ export class GlobalPage {
     public navParams: NavParams, 
     public alertCtrl: AlertController,
     public globalVal: GlobalProvider,
-    public http: Http,
     ) {
   }
 
   @ViewChild('title') title;
   @ViewChild('body') body;
-  blogJson =[];
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GlobalPage');
-    this.update();
-
+    this.update()
   }
-
-  presentAlert(alertTitle, alertBody) {
-  	let alert = this.alertCtrl.create({
-    	title: alertTitle,
-    	subTitle: alertBody,
-    	buttons: ['OK']
-  	});
-  	alert.present();
-	}
 
   userLog(data){
     console.log(data);
   }
-  
-  blogPrint(data){
-    //console.log(data);
-    var blog;
-    var result = JSON.parse(data);
-    this.blogJson = result;
-  }
-
-  userInform(data){
-    //var result = JSON.parse(data);
-    console.log(data);
-    if(data==1){//data posted cfed by server
-      console.log('Post ok');
-      this.presentAlert('Post was posted', '');
-    } else {
-      console.log('Post error');
-      this.presentAlert('Server Error', 'unknown error');
-    }
-  }
-
-  postAjax(url, data, requestType) {
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    if(requestType=='GET') url = url+data;
-    xhr.open(requestType, url, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) {
-          if(requestType=='POST') {
-            console.log("What the fuck",xhr.responseText);
-            vm.userInform(xhr.responseText);
-          } else vm.blogPrint(xhr.responseText);
-        }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-type", "application/json");
-    if(requestType!='GET') xhr.send(data);
-    else xhr.send();
-    return xhr;
-  }
-
-  ___postAjax(url, data) {
-    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    let options = new RequestOptions({ headers: headers });
-    let vm = this;
-    this.http.get(url, data)
-      .toPromise()
-      .then((response) =>
-      {
-        console.log('API Response : ', );
-        vm.blogPrint(response['_body'])
-      })
-      .catch((error) =>
-      { 
-        console.error('API Error : ', error.status);
-        console.log(url);
-      });
-  }
-
-	sendBlog(title, body, id){
-    var data = "title="+title
-      +"&body="+body
-      +"&user_id="+id.toString();
-    this.postAjax('http://localhost:8000/api/blogs', data, 'POST' )
-	}
 
   update(){
-    //this.___postAjax("http://localhost:8000/api/blogs", '');
-    this.postAjax("http://localhost:8000/api/blogs", '', 'GET');
+    this.globalVal.__blogsTaker(0);
   }
 
   blog(){
   	if(this.title.value.length == 0){
-  		this.presentAlert('Title cannot be emply', '');
+  		this.globalVal.presentAlert('Title cannot be emply', '');
   	} else if(this.body.value.length == 0){
-  		this.presentAlert('Body cannot be emply', '');
+  		this.globalVal.presentAlert('Body cannot be emply', '');
   	} else {
-			this.sendBlog(this.title.value, this.body.value, this.globalVal.userID)
+      this.globalVal.__blogPoster(this.title.value, this.body.value);
+      this.update();
   	}
-    this.update()
   }
 
   blogUserInfo(guestId, guestName){
@@ -146,25 +68,3 @@ export class GlobalPage {
   }
 
 }
-/*
-loadDoc(type) {
-    console.log("loadDoc running!");
-    var xhttp = new XMLHttpRequest();  
-    console.log("POST METHOD hahahaha");  
-    var data = "username="+this.username.value
-      +"&password="+this.password.value
-      +"&rememberMe="+this.rememberMe.value;
-    console.log("Data:", data);
-    xhttp.onreadystatechange = function() {
-      console.log("loadDoc ... ", this.readyState, this.status)
-      if (this.readyState == 4 && this.status == 200) {
-         console.log("Taken value:\n\t", this.responseText);
-      }
-    };
-    xhttp.open("POST", "http://localhost:8000/blogs/post_store", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(data);
-  }
-
- */

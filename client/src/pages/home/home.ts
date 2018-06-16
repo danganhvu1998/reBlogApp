@@ -27,88 +27,30 @@ export class HomePage {
 
   @ViewChild('title') title;
   @ViewChild('body') body;
-  blogJson =[];
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GlobalPage');
-    this.update();
-
+    this.update()
   }
-
-  presentAlert(alertTitle, alertBody) {
-  	let alert = this.alertCtrl.create({
-    	title: alertTitle,
-    	subTitle: alertBody,
-    	buttons: ['OK']
-  	});
-  	alert.present();
-	}
 
   userLog(data){
     console.log(data);
   }
-  
-  blogPrint(data){
-    console.log(data);
-    var blog;
-    var result = JSON.parse(data);
-    this.blogJson = result;
-    for (blog in this.blogJson ){
-      console.log(this.blogJson[blog]);
-    }
-  }
-
-  userInform(data){
-    //var result = JSON.parse(data);
-    console.log(data);
-    if(data==1){//data posted cfed by server
-      console.log('Post ok');
-      this.presentAlert('Post was posted', '');
-    } else {
-      console.log('Post error');
-      this.presentAlert('Server Error', 'unknown error');
-    }
-  }
-
-
-  postAjax(url, data, requestType) {
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    if(requestType=='GET') url = url+data;
-    xhr.open(requestType, url, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) {
-          if(requestType=='POST') vm.userInform(xhr.responseText);
-          else vm.blogPrint(xhr.responseText);
-        }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-type", "application/json");
-    if(requestType!='GET') xhr.send(data);
-    else xhr.send();
-    return xhr;
-  }
-
-	sendBlog(title, body, id){
-    var data = "title="+title
-      +"&body="+body
-      +"&user_id="+id.toString();
-    this.postAjax('http://localhost:8000/api/blogs', data, 'POST' );
-	}
 
   update(){
-    this.postAjax("http://localhost:8000/api/blogs/", this.globalVal.userID.toString(), 'GET')
+    console.log(this.globalVal.userID)
+    this.globalVal.__blogsTaker(this.globalVal.userID);
   }
 
   blog(){
-  	if(this.title.value.length == 0){
-  		this.presentAlert('Title cannot be emply', '');
-  	} else if(this.body.value.length == 0){
-  		this.presentAlert('Body cannot be emply', '');
-  	} else {
-			this.sendBlog(this.title.value, this.body.value, this.globalVal.userID)
-  	}
-    this.update()
+    if(this.title.value.length == 0){
+      this.globalVal.presentAlert('Title cannot be emply', '');
+    } else if(this.body.value.length == 0){
+      this.globalVal.presentAlert('Body cannot be emply', '');
+    } else {
+      this.globalVal.__blogPoster(this.title.value, this.body.value);
+      this.update();
+    }
   }
 
   blogUserInfo(guestId, guestName){
@@ -121,4 +63,5 @@ export class HomePage {
       this.navCtrl.push( ShowPage );
     }
   }
+
 }

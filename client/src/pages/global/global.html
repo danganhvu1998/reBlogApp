@@ -28,7 +28,7 @@
 	</ion-list>
 	<button ion-button (click)=blog() color="light" round full>POST</button><br>
 
-	<div *ngFor='let blog of blogJson'>
+	<div *ngFor='let blog of globalVal.blogJson'>
     <ion-card>
       <ion-card-header>
         <ion-item item-right>

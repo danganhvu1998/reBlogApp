@@ -43,7 +43,7 @@ export class ChatPage {
       .then((response) =>
       {  
         console.log(testing);
-        console.log('API Response : ', response['_body']);
+        console.log('API Response : ', JSON.parse(response['_body']));
       })
       .catch((error) =>
       { 
@@ -56,16 +56,14 @@ export class ChatPage {
 
 
   userInform(result, title){
-    console.log(title, "\nThis is resutl: ",result);
+    console.log(title, "\nThis is resutl: ",JSON.parse(result));
   }
 
   postAjax(url, data, title){
-    console.log("Sending ...", data);
     let vm = this;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.onreadystatechange = function() {
-      //console.log("Current status:", xhr.readyState, xhr.status);
       if (xhr.readyState>3 && xhr.status==200) {
         vm.userInform(xhr.responseText, title);
       }

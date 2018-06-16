@@ -39,14 +39,16 @@ class AuthenticationsController extends Controller
     }
 
     public function changePassword(request $request){
-        $check = User::where('email', $request->username)->get();
-        if(count($check)>0 and $check[0]->password==$request->password and $check[0]->id==$request->id){
+        $check = User::where([['email', $request->username],['password', $request->password]])->get();
+        if(count($check)>0 and $check[0]->id==$request->id){
             User::where('id', $request->id)->update(['name' => $request->userName, 'password' => $request->userPass]);
-            $check = User::where('email', $request->username)->get();
-            return view('authentications.serverAccept')->with('result',$check[0]);
+            $check = User::where('email', $request->username)->first();
+            $check->result = 1;
+            return $check;
         }
-        return view('authentications.serverRefuse');
-        //id=12&password=hell&username=danganhvu@gmail.com&userName=Đặng Anh Vũ&userPass=hell
+        $obj = new stdClass;
+        $obj->result = 0;
+        return $obj;
     }
 
     public function checkToken(request $request){
