@@ -46,7 +46,8 @@ class AuthenticationsController extends Controller
             $check->result = 1;
             return $check;
         }
-        $obj = new stdClass;
+        return '{"result":0}';
+        $obj = new \stdClass();
         $obj->result = 0;
         return $obj;
     }

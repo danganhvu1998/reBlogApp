@@ -50,18 +50,14 @@ export class GlobalProvider {
     //setting URL
     var url = "http://localhost:8000/api/blogs";
     if(id>0) url+=id.toString();
-    //setting Header
-    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    let options = new RequestOptions({ headers: headers });
     //send GET
     let vm = this;
     console.log(url);
-    this.http.get(url, options)
+    this.http.get(url)
       .toPromise()
       .then((response) =>
       {
-        console.log("Data taken");
-        vm.blogsData = response["_body"];
+        vm.blogsShower(response['_body']);
       })
       .catch((error) =>
       { 
@@ -71,11 +67,14 @@ export class GlobalProvider {
   }
 
   blogPoster(title, body){
-    var url = "http://localhost:8000/api/blogs";
+    var url = "http://localhost:8000/api/blogs/";
+    //var url = "http://localhost:8000/api/chats/test";
     var data = JSON.stringify({
       title: title,
-      body: body
+      body: body,
+      user_id: this.userID
     })
+    console.log(data);
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
     let vm = this;
@@ -83,6 +82,7 @@ export class GlobalProvider {
       .toPromise()
       .then((response) =>
       {
+        console.log("result:",response['_body']);
         vm.presentAlert("Posted", "");
       })
       .catch((error) =>
@@ -92,23 +92,7 @@ export class GlobalProvider {
       });
   }
 
-  __blogsTaker(id){
-    var url = "http://localhost:8000/api/blogs/";
-    if(id>0) url+=id.toString();
-    console.log(url);
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState>3 && xhr.status==200) {
-        vm.blogsShower(xhr.responseText);
-      }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send();
-    return xhr;
-  }
+  
 
   __blogPoster(title, body){
     var url = "http://localhost:8000/api/blogs/";
@@ -135,3 +119,25 @@ export class GlobalProvider {
   }
 
 }
+
+/*
+__blogsTaker(id){
+    var url = "http://localhost:8000/api/blogs/";
+    if(id>0) url+=id.toString();
+    console.log(url);
+    let vm = this;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState>3 && xhr.status==200) {
+        vm.blogsShower(xhr.responseText);
+      }
+    };
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send();
+    return xhr;
+  }
+
+
+ */

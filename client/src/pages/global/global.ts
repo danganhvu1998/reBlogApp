@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
@@ -42,7 +43,7 @@ export class GlobalPage {
   }
 
   update(){
-    this.globalVal.__blogsTaker(0);
+    this.globalVal.blogsTaker(0);
   }
 
   blog(){

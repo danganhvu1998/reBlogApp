@@ -24,7 +24,6 @@ class BlogsController extends Controller
             array_push($BLOGS, $blog);
         }
         return $BLOGS;
-        return view('blogs.index')->with('blogs', $BLOGS);
     }
 
     /**
@@ -44,7 +43,7 @@ class BlogsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $post = new Blog;
         $post->title = $request->title;
         $post->body = $request->body;
