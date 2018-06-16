@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -22,36 +22,24 @@ export class ChatPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public stoSave: Storage,
-    public http: Http,
+    public http: HttpClient,
     ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
-    var data = JSON.stringify({ token : '502f13a6a4bd7bdd30b2d78dd0a05677c098233e' });
+    var data = { token : '502f13a6a4bd7bdd30b2d78dd0a05677c098233e' };
     console.log("Data:", data);
-    this.postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nFirst Testing');
+    //this.postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nFirst Testing');
     this.___postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nSecond Testing');
 
   }
 
-  ___postAjax(url, data, testing) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    this.http.post(url, data, options)
-      .toPromise()
-      .then((response) =>
-      {  
-        console.log(testing);
-        console.log('API Response : ', JSON.parse(response['_body']));
-      })
-      .catch((error) =>
-      { 
-        console.log(testing);
-        console.error('API Error : ', error.status);
-        console.log(url, data);
-      });
-    
+  async ___postAjax(url, data, testing) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers };
+    let response = await this.http.post(url, data, options).toPromise();
+    console.log('API Response : ', response);
   }
 
 
