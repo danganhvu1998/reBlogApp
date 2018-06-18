@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 class ChatsController extends Controller
 {
     public function test(Request $request){
-    	//return $request;
-    	return '{"result":0}';
-    	$obj = new \stdClass();
-        $obj->result = 0;
-        return $obj;
+        return ["result" => 0];
     }
 
     public function testCreate(){
