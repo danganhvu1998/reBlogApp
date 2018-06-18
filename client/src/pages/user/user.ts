@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+
 
 import { GlobalProvider } from "../../providers/global/global";
 
@@ -24,6 +27,8 @@ export class UserPage {
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	public globalVal: GlobalProvider,
+    public http: HttpClient,
+    public stoSave: Storage,
   	) {
   }
 
@@ -31,34 +36,24 @@ export class UserPage {
     console.log('ionViewDidLoad UserPage', this.globalVal.email, this.globalVal.userID, this.globalVal.userName);
   }
 
-  userInform(data, errorRaise){
-    //console.log(data);
-    //return 0;
-    var dataJson = JSON.parse(data);
-    console.log(dataJson);
+  userInform(data){
+    console.log(data);
+    var dataJson = data;
     if(dataJson['result']>0) {
       this.globalVal.userID = dataJson['id'];
       this.globalVal.userName = dataJson['name'];
       this.globalVal.email = dataJson['email'];
+      this.stoSave.set('token', dataJson['token']);
       this.globalVal.presentAlert("Name and password changed", '')
     }
-    else this.globalVal.presentAlert(errorRaise, '');
+    else this.globalVal.presentAlert("Wrong Password", '');
   }
 
-  postAjax(url, data, errorRaise){
-    console.log("Sending ...", data);
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.onreadystatechange = function() {
-      console.log("Current status:", xhr.readyState, xhr.status);
-      if (xhr.readyState>3 && xhr.status==200) {
-        vm.userInform(xhr.responseText, errorRaise);
-      }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send(data);
-    return xhr;
+  async postAjax(url, data) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = { headers: headers };
+    let response = await this.http.post(url, data, options).toPromise();
+    this.userInform(response);
   }
 
   whatever(){
@@ -74,6 +69,6 @@ export class UserPage {
       +"&userPass="+userPass;
     console.log(data);
     //api/users/changepass
-    this.postAjax('http://localhost:8000/api/users/changepass', data, "Wrong Password");
+    this.postAjax('http://localhost:8000/api/users/changepass', data);
   }
 }

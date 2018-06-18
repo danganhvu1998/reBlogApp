@@ -30,6 +30,6 @@ export class ShowPage {
   }
   
   update(){
-    this.globalVal.__blogsTaker(this.globalVal.guestID);
+    this.globalVal.blogsTaker(this.globalVal.guestID);
   }
 }

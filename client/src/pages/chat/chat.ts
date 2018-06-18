@@ -29,37 +29,17 @@ export class ChatPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
     var data = { token : '502f13a6a4bd7bdd30b2d78dd0a05677c098233e' };
-    console.log("Data:", data);
-    //this.postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nFirst Testing');
-    this.___postAjax('http://localhost:8000/api/chats/test', data, '\n\n\nSecond Testing');
+    var DATA = "token=502f13a6a4bd7bdd30b2d78dd0a05677c098233e";
+    //this.postAjax('http://localhost:8000/api/chats/test', DATA, '\n\n\nFirst Testing');
+    this.___postAjax('http://localhost:8000/api/chats/test', DATA);
 
   }
 
-  async ___postAjax(url, data, testing) {
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  async ___postAjax(url, data) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = { headers: headers };
     let response = await this.http.post(url, data, options).toPromise();
     console.log('API Response : ', response);
-  }
-
-
-  userInform(result, title){
-    console.log(title, "\nThis is resutl: ",JSON.parse(result));
-  }
-
-  postAjax(url, data, title){
-    let vm = this;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState>3 && xhr.status==200) {
-        vm.userInform(xhr.responseText, title);
-      }
-    };
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(data);
-    return xhr;
   }
 
 }

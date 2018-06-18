@@ -38,18 +38,23 @@ class AuthenticationsController extends Controller
         return $check;
     }
 
-    public function changePassword(request $request){
+        public function changePassword(request $request){
         $check = User::where([['email', $request->username],['password', $request->password]])->get();
         if(count($check)>0 and $check[0]->id==$request->id){
-            User::where('id', $request->id)->update(['name' => $request->userName, 'password' => $request->userPass]);
+            User::where('id', $request->id)->update([
+                'name' => $request->userName,
+                'password' => $request->userPass,
+                'remember_token' => hash('ripemd160', 
+                    $request->userName
+                    .$request->username
+                    .$request->userPass)
+             ]);
             $check = User::where('email', $request->username)->first();
             $check->result = 1;
+            $check->token = $check->remember_token;
             return $check;
         }
-        return '{"result":0}';
-        $obj = new \stdClass();
-        $obj->result = 0;
-        return $obj;
+        return ["result" => 0];
     }
 
     public function checkToken(request $request){

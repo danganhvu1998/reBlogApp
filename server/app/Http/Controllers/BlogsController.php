@@ -44,7 +44,6 @@ class BlogsController extends Controller
      */
     public function store(Request $request)
     {   
-        return $request;
         $post = new Blog;
         $post->title = $request->title;
         $post->body = $request->body;

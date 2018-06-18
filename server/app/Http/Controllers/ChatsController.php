@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ChatsController extends Controller
 {
     public function test(Request $request){
-        return ["result" => 0];
+        return ["result" => $request->token];
     }
 
     public function testCreate(){

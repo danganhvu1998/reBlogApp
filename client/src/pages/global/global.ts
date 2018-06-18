@@ -38,10 +38,6 @@ export class GlobalPage {
     this.update()
   }
 
-  userLog(data){
-    console.log(data);
-  }
-
   update(){
     this.globalVal.blogsTaker(0);
   }
@@ -52,7 +48,7 @@ export class GlobalPage {
   	} else if(this.body.value.length == 0){
   		this.globalVal.presentAlert('Body cannot be emply', '');
   	} else {
-      this.globalVal.__blogPoster(this.title.value, this.body.value);
+      this.globalVal.blogPoster(this.title.value, this.body.value);
       this.update();
   	}
   }

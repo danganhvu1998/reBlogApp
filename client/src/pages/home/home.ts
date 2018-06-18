@@ -32,14 +32,9 @@ export class HomePage {
     console.log('ionViewDidLoad GlobalPage');
     this.update()
   }
-
-  userLog(data){
-    console.log(data);
-  }
-
+  
   update(){
-    console.log(this.globalVal.userID)
-    this.globalVal.__blogsTaker(this.globalVal.userID);
+    this.globalVal.blogsTaker(this.globalVal.userID);
   }
 
   blog(){
@@ -48,7 +43,7 @@ export class HomePage {
     } else if(this.body.value.length == 0){
       this.globalVal.presentAlert('Body cannot be emply', '');
     } else {
-      this.globalVal.__blogPoster(this.title.value, this.body.value);
+      this.globalVal.blogPoster(this.title.value, this.body.value);
       this.update();
     }
   }
